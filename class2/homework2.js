@@ -80,7 +80,7 @@ if (h > 17 && h < 23) document. write('Доброго вечора!');
 
 day = new Date(); 
 hour = day.getHours(); 
-if (hour>=23 && hour<5) greeting = "Доброї ночі";
- else { if (hour>5 && hour<11) greeting = "Доброго ранку"; 
-else { if (hour>11 && hour<17) greeting = "Доброго дня";
- else { if (hour>17 && hour<23) greeting = "Доброго вечора"; } } } document.write(greeting);
+if (hour>=23 && hour<5) document.write("Доброї ночі");
+ else { if (hour>5 && hour<11) document.write("Доброго ранку"); 
+else { if (hour>11 && hour<17) document.write("Доброго дня");
+ else { if (hour>17 && hour<23) document.write("Доброго вечора"); }}}
