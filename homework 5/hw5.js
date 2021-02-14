@@ -30,39 +30,29 @@ class Person {
     constructor(name, surname){
         this.name = name;
         this.surname = surname;
-        this.fullName = function () {
-            return this.name + " " + this.surname;
+      
         }
-    }
+    
     get fullName(){
-        return this.name + " " + this.surname;
+        return this.name + ' ' + this.surname;
     }
-    set fullName(value){
-        return;
-    }
-    showFullName() {
-        return this.name + this.surname;
-    }
-
 }
-let person = new Person('John', 'Johnson');
-person.showFullName(); 
+ 
 
 class Student extends Person {
     constructor(name, surname, year){
         super(name, surname);
         this.year = year;
-        this.midleName = function(){
-            'Petrovych'
-        }
+    
     }
-    showFullName(){
-        alert(this.name + this.surname + this.midleName);
+    showFullName(midleName){
+        return super.showFullName() + ' ' + midleName;
     }
     showCourse(){
         
-        result = 2021 - this.year;
-        return result;
+        let date = new Date();
+        let currentYear = date.getFullYear();
+        return currentYear - this.year;
     }
 }
 let stud1 = new Student("Petro", "Petrenko", 2015);
@@ -71,59 +61,103 @@ console.log("Current course: " + stud1.showCourse());
 
 //task 4
 class Worker {
-   
+    #experience = 1.2;
     constructor(fullName, dayRate, workingDays){
         this.fullName = fullName;
         this.dayRate = dayRate;
         this.workingDays = workingDays;
 
     }
-    #experience = 1.2
+   
 
 showSalary() {
-    alert(this.dayRate * this.workingDays);
+    console.log(`${this.fullName} salary: ${this.dayRate * this.workingDays}`);
 }
 
 
 showSalaryWithExperience(){
     
-    alert(this.dayRate * this.workingDays * this.#experience);
+    console.log(`${this.fullName} salary: ${this.dayRate * this.workingDays * this.#experience}`);
 }
+
+showSalaryWorker(){
+    return `${this.dayRate * this.workingDays * this.#experience}`;
 }
+get showExp(){
+    return this.#experience;
+}
+set setExp(experience){
+    this.#experience = experience;
+}
+sortSalaries(workersArray){
+    let sortedSalary = workersArray.sort(function(a, b) {
+        return a.showSalaryWorker() - b.showSalaryWorker();
+    })
+    for(let i = 0; i < sortedSalary.length; i++) {
+        console.log(sortedSalary[i].fullName + ': ' +sortedSalary[i].showSalaryWorker());
+    }
+}
+
+}
+
+let worker1 = new Worker('John Johnson', 20, 23);
+console.log(worker1.fullName);
+worker1.showSalary();
+console.log('New experience: ' + worker1.showExp);
+worker1.showSalaryWithExperience();
+worker1.setExp = 1.5;
+console.log("New experience: " + worker1.showExp);
+worker1.showSalaryWithExperience();
 
 //task 5
 class GeometricFigure {
-    constructor(){}
-    getArea() {}
+    getArea() {
+        return 0;
+    }
     toString(){
+        return Object.getPrototypeOf(this).constructor.name;
+    }
         
     }
-}
 
-class Triangle extends GeometricFigure{
-    constructor(height, side){
+class Triangle extends GeometricFigure {
+    constructor(height, base){
+        super();
         this.height = height;
-        this.side - side;
+        this.side - base;
     }
     getArea(){
-       return this.height * this.side;
+       return this.height * this.base;
     }
 }
-class Square extends GeometricFigure{
-    constructor(side1, side2){
-        this.side1 = side1;
-        this.side2 = side2;
+class Square extends GeometricFigure {
+    constructor(a){
+        this.side = a;
     }
+
     getArea(){
-        return this.side1 * this.side2;
+        return this.side ** 2; 
     }
 }
 class Circle extends GeometricFigure{
     constructor(r){
-        this.r = r;
+        super();
+        this.radius = r;
     }
     getArea(){
-        let p = 3.14;
-        this.r ** 2 * p;
+        return Math.PI * this.radius ** 2;
     }
 }
+
+function handleFigures(figures){
+    return figures.reduce(function(sum, figure){
+        if (figure instanceof GeometricFigure) {
+            console.log(`Geometric figure: ${figure.toString()} - area: ${figure.getArea()}`);
+            return sum + figure.getArea()
+        }
+        throw Error('Bad argument figure');
+    }, 0);
+}
+
+const figures = [new Triangle(5,7), new Square(9),new Circle(3)];
+console.log(handleFigures(figures));
