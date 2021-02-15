@@ -127,14 +127,19 @@ worker3.setExp = 1.5;
 console.log("New experience: " + worker3.showExp);
 worker3.showSalaryWithExperience();
  
-
-
-function sortNumbers() {
-    
-  }
-  let arr = [worker3.showSalaryWithExperience(), worker2.showSalaryWithExperience(),worker1.showSalaryWithExperience(),];
-  arr.sort(sortNumbers); 
-  console.log(arr);
+function sortedSalaries(workersArray) {
+                
+    let sortedSalary = workersArray.sort(function(a, b) {
+        return a.showSalaryWorker() - b.showSalaryWorker();
+    })
+    console.log(sortedSalary);
+    for (let i = 0; i < sortedSalary.length; i++) {
+        console.log(sortedSalary[i].fullName + ": " + sortedSalary[i].showSalaryWorker());
+    }
+}
+let workersArray = [worker1, worker2, worker3];
+        worker3.sortSalaries(workersArray);
+  
 /*
 //task 5
 class GeometricFigure {
