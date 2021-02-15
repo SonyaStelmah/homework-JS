@@ -1,5 +1,5 @@
 //  task 1
-
+/*
 
 function propsCount(course, duration, direction){
     this.course = course;
@@ -58,7 +58,7 @@ class Student extends Person {
 let stud1 = new Student("Petro", "Petrenko", 2015);
 console.log(stud1.showFullName("Petrovych"));
 console.log("Current course: " + stud1.showCourse()); 
-
+*/
 //task 4
 class Worker {
     #experience = 1.2;
@@ -109,6 +109,33 @@ worker1.setExp = 1.5;
 console.log("New experience: " + worker1.showExp);
 worker1.showSalaryWithExperience();
 
+let worker2 = new Worker ('Tom Tomson', 48, 22);
+console.log(worker2.fullName);
+worker2.showSalary();
+console.log('New experience: ' + worker2.showExp);
+worker2.showSalaryWithExperience();
+worker2.setExp = 1.5;
+console.log("New experience: " + worker2.showExp);
+worker2.showSalaryWithExperience();
+
+let worker3 = new Worker ('Andy Ander', 29, 23);
+console.log(worker3.fullName);
+worker3.showSalary();
+console.log('New experience: ' + worker3.showExp);
+worker3.showSalaryWithExperience();
+worker3.setExp = 1.5;
+console.log("New experience: " + worker3.showExp);
+worker3.showSalaryWithExperience();
+ 
+
+
+function sortNumbers() {
+    
+  }
+  let arr = [worker3.showSalaryWithExperience(), worker2.showSalaryWithExperience(),worker1.showSalaryWithExperience(),];
+  arr.sort(sortNumbers); 
+  console.log(arr);
+/*
 //task 5
 class GeometricFigure {
     getArea() {
@@ -132,6 +159,7 @@ class Triangle extends GeometricFigure {
 }
 class Square extends GeometricFigure {
     constructor(a){
+        super();
         this.side = a;
     }
 
@@ -161,3 +189,4 @@ function handleFigures(figures){
 
 const figures = [new Triangle(5,7), new Square(9),new Circle(3)];
 console.log(handleFigures(figures));
+*/
