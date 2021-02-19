@@ -19,11 +19,11 @@ setTimeout(function(){
 setTimeout(function (){ 
     x.moveTo(200, 200);
        
-}, 2000);
+}, 4000);
 
    setTimeout(function (){
    x.close();
-   }, 2000);
+   }, 6000);
    
 </script>
      -->
@@ -118,17 +118,60 @@ function mouseOut(){
 </div> -->
 
 <!-- ****************************************task 6**************************************************** -->
-<!-- <p id="demo"></p>
-<script>
-    
-      var w = window.innerWidth;
-      var h = window.innerHeight;
-      document.getElementById("demo").innerHTML = "Width: " + w + "<br>Height: " + h;
-    
-    </script> -->
-    
-<!-- ****************************************task 7**************************************************** -->
+<!-- <div id = "result"></div>
 
+<script>
+    function displaySize(){
+        let w = window.innerWidth;
+        let h = window.innerHeight;  
+        let size = "Width: " + w + ", " + "Height: " + h;
+        document.getElementById('result').innerHTML = size;
+    }
+     window.addEventListener("resize", displaySize);
+    
+    </script>
+     -->
+<!-- ****************************************task 7**************************************************** -->
+<!-- <select name="country" id="country">
+    <option value="ger">Germany</option>
+    <option value="usa">USA</option>
+    <option value="ukr">Ukraine</option>
+    </select>
+    
+    <select name="cities" id="cities"></select>
+    <p></p>
+    <script>
+
+        let cityArr = {
+            'ger': ['Berlin','Munich','Frankfurt','Hamburg'],
+            'usa': ['New York', 'Los Angeles', 'Miami', 'Chikago'],
+            'ukr': ['Lviv', 'Kyiv', 'Ternopil', 'Odessa'],
+        }
+        
+        let prime_select = document.getElementById('country');
+        prime_select.addEventListener('change', func);
+        prime_select.addEventListener('change', toParagraph);
+
+        let city_select = document.getElementById('cities');
+        city_select.addEventListener('change', toParagraph);
+
+        function func(){
+            city_select.innerHTML = '';
+            let selected_country = prime_select.value;
+            for (let i = 0; i < cityArr[selected_country].length; i++) {
+                let new_option = document.createElement('option');
+                new_option.innerHTML = cityArr[selected_country][i];
+                city_select.appendChild(new_option);
+            }
+        }
+        
+        let parag = document.querySelector('p');
+        function toParagraph(){
+            parag.innerHTML = '';
+            parag.innerHTML = prime_select.options[prime_select.selectedIndex].text + ', ' + city_select.options[city_select.selectedIndex].text;
+        }
+
+    </script> -->
 
 
 <script src="hw7.js"></script>

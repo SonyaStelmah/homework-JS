@@ -16,13 +16,5 @@
 //    x.close();
 //    }, 2000);
    
-//task 2
 
-let text = document.getElementById("text");
 
-function changeCSS(){
-text.style.color = "orange"
-text.style.fontSize = "20px"
-text.style.fontFamily = "Comic "
-
-}
