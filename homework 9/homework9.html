@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello!</h1>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  
+    <!-- task 1 -->
+    <a href = "https://gmail.com">Link</a>
+    <script>
+        $("a[href^='https://']").attr('target', '_blank');
+    </script>
+
+    <!-- task 2 -->
+ <h2 class="head">header1</h2>
+ <h2 class="head">header2 <span class="inner">inner elem1</span></h2>
+ <h2>header3</h2>
+ <h2 class="head">header4<span>inner elem2</span></h2>
+ <h2>header5</h2>
+
+<script>
+    $('h2.head').css('background', 'green').find('.inner').css('fontSize', '35 px');
+</script>
+
+<!-- task 3  -->
+
+ <h3>header1</h3>
+ <div>text1</div>
+ <h3>header2</h3>
+ <div>text2</div>
+
+ <script>
+     $('h3 + div').each(function(){
+         const $elem = $(this);
+         $elem.prev().before($elem);
+     });
+ </script>
+
+ <!-- task 4 -->
+ <input type = "checkbox">
+ <input type = "checkbox">
+ <input type = "checkbox">
+ <input type = "checkbox">
+ <input type = "checkbox">
+
+ <script>
+     const $checkboxes = $(':checkbox');
+     $checkboxes.on('click', function(){
+         if ($(':checkbox:checked').length == 3){
+             $checkboxes.attr('disabled', 'true');
+         }
+     });
+ </script>
+
+</body>
+</html>
