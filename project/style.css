@@ -1,0 +1,47 @@
+.image-center {
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+}
+.heading {
+    text-align: center;
+    color: #8B4513;
+    text-shadow:white 0 0 4px;
+    font-size: 40px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+body{
+    background: url("background.jpg")
+}
+
+.distance {
+    text-align:center;
+    
+    color: #8B4513;
+    text-shadow:white 0 0 4px;
+    font-size: 40px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+    
+}
+
+.b-popup{
+    text-align: center;
+    width:100%;
+    min-height:100%;
+    background-color: rgba(0,0,0,0.5);
+    overflow:hidden;
+    position:fixed;
+    top:0px;
+    font-size: 40px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.b-popup .b-popup-content{
+    margin:40px auto 0px auto;
+    width:500px;
+    height: 100px;
+    padding:10px;
+    background-color:#c5c5c5;
+    border-radius:5px;
+    box-shadow: 0px 0px 10px #000;
+}
